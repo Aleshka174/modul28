@@ -1,25 +1,15 @@
 <?php 
-
 class Shop 
 {
-	function __construct(){
-		$productShop = Product:: getProduct('апельсин', '60', '20');
-		return echo($productShop);
+	function __construct($name, $price, $description){
+		$this-> $productShop = new Product($name, $price, $description);
 	}
-	function workBasket()
-	{
-
-		return echo(new basket());
+	function workBasket($name)
+	{	
+		$ul = new Basket();
+		$this->ul->add($name);
 	}
 }
-
-/*class programm
-{
-	function __construct()
-	{
-		$this-> new Order();
-	}
-}*/
 
 class Product 
 {
@@ -27,34 +17,47 @@ class Product
 	private $priceProduct;
 	private $descriptionProduct;
 
+	public function __construct($name, $price, $description){
+ 		echo $this->nameProduct = $name;
+ 		echo $this->priceProduct = $price;
+ 		echo $this->descriptionProduct = $description;
+	}
+
 	public function getProduct($name, $price, $description){
-		$this->$nameProduct = $name;
-		$this->$priceProduct = $price;
-		$this->$descriptionProduct = $description;
+		$this->nameProduct = $name;
+		$this->priceProduct = $price;
+		$this->descriptionProduct = $description;
 	}
 
 
 }
 
-class Basket extends Product
+class Basket 
 {
-	$newUser = User::getName('Алексей');
-	$newProduct = Product:: getProduct('апельсин', '60', '20')
-	public $list = array();
-	function putBasket()
-	{
-		foreach ($list as $productBasket) {
-			if ($this->$descriptionProduct == 0 ) {
-				echo "Данный товар закончался";
-			}
-		}
-	}
+  private $_list = array();
+ 
+  public function __construct( $names )
+  {
+    if ( $names != null )
+    {
+      foreach( $names as $name )
+      {
+        $this->_list []= $name;
+      }
+    }
+  }
+ 
+  public function add( $name )
+  {
+    $this->_list []= $name;
+  }
+ 
 }
 
-class Order 
+/*class Order 
 {
 	
-	function __construct(argument)
+	function __construct()
 	{
 		# code...
 	}
@@ -63,7 +66,7 @@ class Order
 class Checkpoint 
 {
 	
-	function __construct(argument)
+	function __construct()
 	{
 		# code...
 	}
@@ -72,7 +75,7 @@ class Checkpoint
 class Sale
 {
 	
-	function __construct(argument)
+	function __construct()
 	{
 		# code...
 	}
@@ -81,11 +84,11 @@ class Sale
 class Delivery
 {
 	
-	function __construct(argument)
+	function __construct()
 	{
 		# code...
 	}
-}
+}*/
 
 class Users
 {
@@ -107,5 +110,5 @@ class Users
   } 
 }
 
-$sh= new Shop();
+$sh= new Shop('апельсин', '60', '10');
  ?>
